@@ -66,6 +66,7 @@ int main() {
         } 
             
         if(choice == 4){
+            exit();
             x++;
         }
             
