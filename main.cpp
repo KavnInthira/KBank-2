@@ -41,6 +41,7 @@ int main() {
 
     while(x < 1) {
         x = 0;
+        cout << "\n";
         cout << "Please enter the number corresponding to the options below.\n";
         cout << "[Enter: 1] Deposit\n";
         cout << "[Enter: 2] Withdraw\n";
