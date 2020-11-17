@@ -5,10 +5,35 @@
 #include <string>
 using namespace std;
 
-//global variables
+/*global variables*/
 double currentBalance = 0.00;
+   
+ //variable to add from the acccount txt for text for readCSV stores variables here
+string firstName, lastName;
+int customerCode;
+double accountBalance;
+string codeString;
+string balanceString;
+string line;
 
-//methods
+/*methods*/
+void readCSV(){ //readfile
+    ifstream myFileStream("/Users/kavininthirakot/Git/C/KBank/.vscode/accounts.txt");
+    if(!myFileStream.is_open()){
+        cout<<"File failed to open"<<endl;
+    }
+    while(getline(myFileStream, line)){
+        stringstream ss(line);
+        getline(ss, firstName, ',');
+        getline(ss, lastName, ',');
+        getline(ss, codeString, ',');
+        customerCode = stoi(codeString);
+        getline(ss, balanceString, ',');
+        accountBalance = stod(balanceString);
+    }
+
+    myFileStream.close(); //closing txt file when done with method
+}
 void deposit(double moneyIn){
     currentBalance = currentBalance + moneyIn;
     cout<<"Transaction Complete!\n";
@@ -44,16 +69,7 @@ int main() {
     int sCode;
 
     int mainLoop = 0; //counter to keep asking options till exit.
-    int initLoop = 0; //counter before main.
-
-    //will check all external files to see if it can properly be opened before preceding.
-    ifstream myFileStream("/Users/kavininthirakot/Git/C/KBank/.vscode/accounts.txt");
-    if(!myFileStream.is_open()){
-        cout<<"File failed to open"<<endl;
-    }
-
-    //init info to compare to vistor information.
-    
+    int initLoop = 0; //counter before main to ask questions.
     
     cout << "\n-----------------------------------\n";
     cout << "     Welcome to Kavin's Bank!\n";
@@ -75,12 +91,12 @@ int main() {
 
     while(initLoop < 1) {
         if(initalChoice == 1){
-            cout << "Great, lets create a 4 digit passcode: ";
+            cout << "Great, lets create a numerical passcode: ";
             cin >> sCode;
             cout << "Don't forget to write this down so you'll be able to access your account later.\n" << endl;
             initLoop++;
         } else if (initalChoice == 2) {
-            cout << "Please enter your account 4 digit security code: ";
+            cout << "Please enter your account numerical security code: ";
             cin >> sCode;
             initLoop++;
         } else {
@@ -125,6 +141,6 @@ int main() {
             mainLoop++;
         }
             
-    }
+    } 
     return 0;
 }
