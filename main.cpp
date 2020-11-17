@@ -1,4 +1,5 @@
 #include "func.hpp"
+#include "parser.hpp"
 #include <iostream>
 #include <iomanip>
 #include <sstream>
@@ -6,42 +7,14 @@
 #include <string>
 using namespace std;
 
-   
- //variable to add from the acccount txt for text for readCSV stores variables here
-string firstName, lastName;
-int customerCode;
-double accountBalance;
-string codeString;
-string balanceString;
-string line;
-
-/*methods*/
-void readCSV(){ //readfile
-    ifstream myFileStream("/Users/kavininthirakot/Git/C/KBank/.vscode/accounts.txt");
-    if(!myFileStream.is_open()){
-        cout<<"File failed to open"<<endl;
-    }
-    while(getline(myFileStream, line)){
-        stringstream ss(line);
-        getline(ss, firstName, ',');
-        getline(ss, lastName, ',');
-        getline(ss, codeString, ',');
-        customerCode = stoi(codeString);
-        getline(ss, balanceString, ',');
-        accountBalance = stod(balanceString);
-    }
-
-    myFileStream.close(); //closing txt file when done with method
-}
-
 //code runner
 int main() {
 
     int choice;
     double moneyIn;
     double moneyOut;
-    int initalChoice;
-    int userBalance;
+    int initalChoice; // for intial menu questions 
+    int userBalance; //will be used to grab data.
 
     //variable's to search for user account information.
     string fName;
@@ -50,7 +23,7 @@ int main() {
 
     int mainLoop = 0; //counter to keep asking options till exit.
     int initLoop = 0; //counter before main to ask questions.
-    
+
     cout << "\n-----------------------------------\n";
     cout << "     Welcome to Kavin's Bank!\n";
     cout << "-----------------------------------\n\n";
@@ -89,8 +62,6 @@ int main() {
     }
     
     //reading file to check if account exits with name and security code.
-    
-
     while(mainLoop < 1) {
         cout << "\n";
         cout << "[Enter: 1] Deposit "<< endl;
