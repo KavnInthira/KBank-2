@@ -1,3 +1,4 @@
+#include "func.hpp"
 #include <iostream>
 #include <iomanip>
 #include <sstream>
@@ -5,8 +6,6 @@
 #include <string>
 using namespace std;
 
-/*global variables*/
-double currentBalance = 0.00;
    
  //variable to add from the acccount txt for text for readCSV stores variables here
 string firstName, lastName;
@@ -34,26 +33,6 @@ void readCSV(){ //readfile
 
     myFileStream.close(); //closing txt file when done with method
 }
-void deposit(double moneyIn){
-    currentBalance = currentBalance + moneyIn;
-    cout<<"Transaction Complete!\n";
-}
-void widthdraw(double moneyOut){
-    if(moneyOut < currentBalance){
-        cout<<"Error, Insufficent funds! Please add more funds to your account.\n";
-    } else {
-        currentBalance = currentBalance - moneyOut;
-        cout<<"Transaction Complete!\n";
-    }
-}
-void checkbalance(){
-    cout<<"Current Balance: " << "$" << fixed << setprecision(2) << currentBalance << "\n\n";
-}
-void exit(){
-    cout << "-----------------------------------\n";
-    cout << " Thanks for visiting Kavin's Bank!\n";
-    cout << "-----------------------------------\n\n";
-}
 
 //code runner
 int main() {
@@ -62,6 +41,7 @@ int main() {
     double moneyIn;
     double moneyOut;
     int initalChoice;
+    int userBalance;
 
     //variable's to search for user account information.
     string fName;
@@ -124,20 +104,20 @@ int main() {
         if(choice == 1){ // deposit
             cout << "Please enter the amount you would like to deposit:  " ;
             cin >> moneyIn;
-            deposit(moneyIn);
+            func::deposit(moneyIn);
             } 
 
         if(choice == 2){ //widthdraw
             cout<< "Please enter the amount you would like to withdraw: ";
             cin >> moneyOut;
-            widthdraw(moneyOut);
+            func::widthdraw(moneyOut);
         }
         if(choice == 3){ //checkbalance
-            checkbalance();
+            func::checkbalance();
         } 
             
         if(choice == 4){
-            exit();
+            func::exit();
             mainLoop++;
         }
             
