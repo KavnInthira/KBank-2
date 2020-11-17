@@ -2,9 +2,6 @@
 #include "parser.hpp"
 #include <iostream>
 #include <iomanip>
-#include <sstream>
-#include <fstream>
-#include <string>
 using namespace std;
 
 //code runner
@@ -28,7 +25,7 @@ int main() {
     cout << "     Welcome to Kavin's Bank!\n";
     cout << "-----------------------------------\n\n";
 
-    //getting vistor information to proceed with asking the right questions and giving the write info.
+    //INITIAL QUESTIONS: getting vistor information to proceed with asking the right questions and giving the write info.
     cout << "To provide you with the best experience.. \n" << endl;
     cout << "Please enter your first name: ";
     cin >> fName;
@@ -51,7 +48,13 @@ int main() {
         } else if (initalChoice == 2) {
             cout << "Please enter your account numerical security code: ";
             cin >> sCode;
-            initLoop++;
+
+            if(fileReadWrite::readCSV(fName,lName,sCode) == true){
+                cout<< "Account Has been found! " << endl;
+                initLoop++;
+            } else {
+                cout << "Error: Account not found, please try again..\n" << endl;
+                }
         } else {
             cout << "\n";
             cout << "That is not a choice.. please try again. \n" << endl;
@@ -60,8 +63,8 @@ int main() {
             cin >> initalChoice;
         }
     }
-    
-    //reading file to check if account exits with name and security code.
+
+    //MAIN QUESTIONS!!!
     while(mainLoop < 1) {
         cout << "\n";
         cout << "[Enter: 1] Deposit "<< endl;

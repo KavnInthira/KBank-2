@@ -1,3 +1,5 @@
 Not Finished: 11/5/20 - Line 79, need to have a way to check if another user with the first and last name doesn't have the same security code. if does then user is prompt with an error message asking to use a different passcode. 
-Not Finished: 1/6/20 - read file and store data from user into variables
-Finished: 11/6/20 - need to close file stream
+Finished: 11/16/20 - read file and store data from user into variables
+Finished: 11/16/20 - need to close file stream
+Not Finished: 11/17/2o - Need a way to store current balance of user 
+
