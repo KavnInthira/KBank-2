@@ -12,8 +12,8 @@ int main() {
     double moneyOut;
     int initalChoice; // for intial menu questions 
     int userBalance; //will be used to grab data.
-
     //variable's to search for user account information.
+    
     string fName;
     string lName;
     int sCode;

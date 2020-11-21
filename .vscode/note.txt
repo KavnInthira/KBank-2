@@ -3,4 +3,4 @@ Finished: 11/16/20 - read file and store data from user into variables
 Finished: 11/16/20 - need to close file stream
 Finished: 11/17/2o - Need a way to store current balance of user
 FInished: 11/20/20 - finish get balance function in
-Not Finished: 11/21/20 - Change the user balance locally then when user exit will update the note file.
+Not Finished: 11/21/20 - When user exit need to update the account.txt file.

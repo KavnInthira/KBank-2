@@ -14,11 +14,10 @@ string line;
 
 double balance = 0.00;
 namespace fileReadWrite{
-   
     bool readCSV(string first, string last, int code){ //readfile
         ifstream myFileStream("/Users/kavininthirakot/Git/C/KBank/.vscode/accounts.txt");
-        if(!myFileStream.is_open()){
-            cout<<"File failed to open"<<endl;
+            if(!myFileStream.is_open()){
+                cout<<"File failed to open"<<endl;
         }
         while(getline(myFileStream, line)){
             stringstream ss(line);
@@ -28,10 +27,10 @@ namespace fileReadWrite{
             customerCode = stoi(codeString);
             getline(ss, balanceString, ',');
             accountBalance = stod(balanceString);
-            if(firstName == first && lastName == last && customerCode == code){
-                balance = accountBalance;
-                return true; //for function getting the write customer code.
-            } 
+                if(firstName == first && lastName == last && customerCode == code){
+                    balance = accountBalance;
+                    return true; //for function getting the write customer code.
+                } 
         }
         return false;
         myFileStream.close(); //closing txt file when done with method

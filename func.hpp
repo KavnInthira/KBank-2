@@ -4,7 +4,6 @@ using namespace std;
 
 namespace func {
     double deposit(double currentBalance, double moneyIn){
-        
         currentBalance = currentBalance + moneyIn;
         cout<<"Transaction Complete!\n";
         return currentBalance;
@@ -18,7 +17,6 @@ namespace func {
             cout<<"Transaction Complete!\n";
             return currentBalance;
         }
-        
     }
     void checkbalance(double currentBalance){
         cout<<"Current Balance: " << "$" << fixed << setprecision(2) << currentBalance << "\n\n";
