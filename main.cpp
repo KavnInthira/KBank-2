@@ -64,7 +64,6 @@ int main() {
             cin >> initalChoice;
         }
     }
-
     //MAIN QUESTIONS!!!
     while(mainLoop < 1) {
         cout << "\n";
@@ -72,30 +71,25 @@ int main() {
         cout << "[Enter: 2] Withdraw "<< endl;
         cout << "[Enter: 3] Check Balance" << endl;
         cout << "[Enter: 4] Exit\n " << endl;
-
         cout << "Enter Choice: ";
         cin >> choice;
-    
         if(choice == 1){ // deposit
             cout << "Please enter the amount you would like to deposit:  " ;
             cin >> moneyIn;
-            func::deposit(userBalance,moneyIn);
+            userBalance = func::deposit(userBalance,moneyIn);
             } 
-
         if(choice == 2){ //widthdraw
             cout<< "Please enter the amount you would like to withdraw: ";
             cin >> moneyOut;
-            func::widthdraw(userBalance,moneyOut);
+            userBalance = func::widthdraw(userBalance,moneyOut);
         }
         if(choice == 3){ //checkbalance
             func::checkbalance(userBalance);
-        } 
-            
+        }                       
         if(choice == 4){
             func::exit();
             mainLoop++;
         }
-            
     } 
     return 0;
 }

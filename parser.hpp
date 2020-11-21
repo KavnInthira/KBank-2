@@ -28,12 +28,10 @@ namespace fileReadWrite{
             customerCode = stoi(codeString);
             getline(ss, balanceString, ',');
             accountBalance = stod(balanceString);
-
             if(firstName == first && lastName == last && customerCode == code){
                 balance = accountBalance;
                 return true; //for function getting the write customer code.
-            }
-            
+            } 
         }
         return false;
         myFileStream.close(); //closing txt file when done with method
@@ -42,4 +40,5 @@ namespace fileReadWrite{
         cout << balance << endl;
         return balance;
     }
+    
 }
