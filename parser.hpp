@@ -1,3 +1,4 @@
+
 #include <sstream>
 #include <fstream>
 #include <string>
@@ -11,6 +12,7 @@ string codeString;
 string balanceString;
 string line;
 
+double balance = 0.00;
 namespace fileReadWrite{
    
     bool readCSV(string first, string last, int code){ //readfile
@@ -28,11 +30,16 @@ namespace fileReadWrite{
             accountBalance = stod(balanceString);
 
             if(firstName == first && lastName == last && customerCode == code){
-            return true;
+                balance = accountBalance;
+                return true; //for function getting the write customer code.
             }
+            
         }
         return false;
-     
         myFileStream.close(); //closing txt file when done with method
+    }
+    double getBalance(){
+        cout << balance << endl;
+        return balance;
     }
 }

@@ -51,6 +51,7 @@ int main() {
 
             if(fileReadWrite::readCSV(fName,lName,sCode) == true){
                 cout<< "Account Has been found! " << endl;
+                userBalance = fileReadWrite::getBalance();
                 initLoop++;
             } else {
                 cout << "Error: Account not found, please try again..\n" << endl;
@@ -78,16 +79,16 @@ int main() {
         if(choice == 1){ // deposit
             cout << "Please enter the amount you would like to deposit:  " ;
             cin >> moneyIn;
-            func::deposit(moneyIn);
+            func::deposit(userBalance,moneyIn);
             } 
 
         if(choice == 2){ //widthdraw
             cout<< "Please enter the amount you would like to withdraw: ";
             cin >> moneyOut;
-            func::widthdraw(moneyOut);
+            func::widthdraw(userBalance,moneyOut);
         }
         if(choice == 3){ //checkbalance
-            func::checkbalance();
+            func::checkbalance(userBalance);
         } 
             
         if(choice == 4){
@@ -98,3 +99,4 @@ int main() {
     } 
     return 0;
 }
+

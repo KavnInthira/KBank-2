@@ -2,14 +2,13 @@
 #include <iomanip>
 using namespace std;
 
-double currentBalance = 0.00;
-
 namespace func {
-    void deposit(double moneyIn){
+    void deposit(double currentBalance, double moneyIn){
+        
         currentBalance = currentBalance + moneyIn;
         cout<<"Transaction Complete!\n";
     }
-    void widthdraw(double moneyOut){
+    void widthdraw(double currentBalance,double moneyOut){
         if(moneyOut < currentBalance){
             cout<<"Error, Insufficent funds! Please add more funds to your account.\n";
         } else {
@@ -17,7 +16,7 @@ namespace func {
             cout<<"Transaction Complete!\n";
         }
     }
-    void checkbalance(){
+    void checkbalance(double currentBalance){
         cout<<"Current Balance: " << "$" << fixed << setprecision(2) << currentBalance << "\n\n";
     }
     void exit(){
