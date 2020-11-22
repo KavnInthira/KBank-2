@@ -13,6 +13,7 @@ string balanceString;
 string line;
 
 double balance = 0.00;
+
 namespace fileReadWrite{
     bool readCSV(string first, string last, int code){ //readfile
         ifstream myFileStream("/Users/kavininthirakot/Git/C/KBank/.vscode/accounts.txt");
@@ -36,8 +37,8 @@ namespace fileReadWrite{
         myFileStream.close(); //closing txt file when done with method
     }
     double getBalance(){
-        cout << balance << endl;
         return balance;
     }
+    
     
 }

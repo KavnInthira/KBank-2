@@ -50,10 +50,12 @@ int main() {
             cin >> sCode;
 
             if(fileReadWrite::readCSV(fName,lName,sCode) == true){
+                cout << "" << endl;
                 cout<< "Account Has been found! " << endl;
                 userBalance = fileReadWrite::getBalance();
                 initLoop++;
             } else {
+                cout << "" << endl;
                 cout << "Error: Account not found, please try again..\n" << endl;
                 }
         } else {
