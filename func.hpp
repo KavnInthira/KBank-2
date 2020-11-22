@@ -1,5 +1,6 @@
 #include <iostream>
 #include <iomanip>
+#include <stdio.h>
 using namespace std;
 
 namespace func {
@@ -21,9 +22,13 @@ namespace func {
     void checkbalance(double currentBalance){
         cout<<"Current Balance: " << "$" << fixed << setprecision(2) << currentBalance << "\n\n";
     }
-    void exit(){
+    void exit(string first, string last, int code){
         cout << "-----------------------------------\n";
         cout << " Thanks for visiting Kavin's Bank!\n";
         cout << "-----------------------------------\n\n";
+    }
+    void removeRename(){
+        remove("accounts.txt");
+        rename("accountTemp.txt","accounts.txt");
     }
 }

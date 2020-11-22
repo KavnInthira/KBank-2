@@ -72,7 +72,7 @@ int main() {
         cout << "[Enter: 1] Deposit "<< endl;
         cout << "[Enter: 2] Withdraw "<< endl;
         cout << "[Enter: 3] Check Balance" << endl;
-        cout << "[Enter: 4] Exit\n " << endl;
+        cout << "[Enter: 4] Exit and Save Changes\n " << endl;
         cout << "Enter Choice: ";
         cin >> choice;
         if(choice == 1){ // deposit
@@ -89,7 +89,8 @@ int main() {
             func::checkbalance(userBalance);
         }                       
         if(choice == 4){
-            func::exit();
+            fileReadWrite::accountRewrite(fName, lName, sCode, userBalance);
+            func::removeRename();
             mainLoop++;
         }
     } 

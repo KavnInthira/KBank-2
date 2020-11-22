@@ -16,7 +16,7 @@ double balance = 0.00;
 
 namespace fileReadWrite{
     bool readCSV(string first, string last, int code){ //readfile
-        ifstream myFileStream("/Users/kavininthirakot/Git/C/KBank/.vscode/accounts.txt");
+        ifstream myFileStream("accounts.txt");
             if(!myFileStream.is_open()){
                 cout<<"File failed to open"<<endl;
         }
@@ -28,6 +28,7 @@ namespace fileReadWrite{
             customerCode = stoi(codeString);
             getline(ss, balanceString, ',');
             accountBalance = stod(balanceString);
+
                 if(firstName == first && lastName == last && customerCode == code){
                     balance = accountBalance;
                     return true; //for function getting the write customer code.
@@ -39,6 +40,33 @@ namespace fileReadWrite{
     double getBalance(){
         return balance;
     }
-    
-    
+    void accountRewrite(string first, string last, int code, double bal){
+        ifstream myFileStream;
+        ofstream myfile;
+
+        myFileStream.open("accounts.txt"); 
+        myfile.open ("accountTemp.txt");
+            if(!myfile.is_open() || !myFileStream.is_open()){
+                cout<<"a file failed to open"<<endl;
+            } 
+        while(getline(myFileStream, line)){
+            stringstream ss(line);
+            getline(ss, firstName, ',');
+            getline(ss, lastName, ',');
+            getline(ss, codeString, ',');
+            customerCode = stoi(codeString);
+            getline(ss, balanceString, ',');
+            accountBalance = stod(balanceString);
+
+                if(firstName == first && lastName == last && customerCode == code){
+                    myfile << firstName << "," << lastName << "," << customerCode << "," << bal << endl;
+                } else {
+                    myfile << line << endl;
+                }
+        }
+        myFileStream.close();
+        myfile.close();
+
+    }
+
 }
