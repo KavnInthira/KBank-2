@@ -7,4 +7,8 @@ Finished: 11/21/20 - When user exit need to update the account.txt file.
 Not Finished: 11/22/20 - Open account - write new account to acounts.txt file
 Not Finished: 11/22/20 - Open account - after account is created let user modify locally.
 Not Finished: 11/22/20 - Open account - save usern after user modify and created account.
+Not Finished: 11/24/20:
+        check if accont exits ask user to use a different numerical code.
+        calls functions to check for user pass and code in other user so that there are not two of the same accounts.
+        fucntion comes back false then account is then created and written in accounts.txt   
 

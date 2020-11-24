@@ -41,17 +41,23 @@ int main() {
 
     while(initLoop < 1) {
         if(initalChoice == 1){
-            cout << "Great, lets create a numerical passcode: ";
+            cout << "Please create a numerical passcode: ";
             cin >> sCode;
             //TODO: check if accont exits ask user to use a different numerical code.
             //TODO: calls functions to check for user pass and code in other user so that there are not two of the same accounts.
-            //TODO: if fucntion comes back false then account is then created and written in accounts.txt            
+            //TODO: if fucntion comes back false then account is then created and written in accounts.txt
+                if(fileReadWrite::readCSV(fName,lName,sCode) == true) {
+                    cout << "" << endl;
+                    cout << "Error: Please try a different passcode..\n" << endl;
+                    } else {
+                        cout << "\n" << endl;             
+                        cout << "Don't forget to write this down so you'll be able to access your account later.\n" << endl;
 
-
-
-
-            cout << "Don't forget to write this down so you'll be able to access your account later.\n" << endl;
-            initLoop++;
+                        //TODO: need to add function to write file to note.
+                        fileReadWrite::newAccount(fName,lName,sCode,0.00);
+                        func::removeRename();
+                        initLoop++;
+                    }
         } else if (initalChoice == 2) {
             cout << "Please enter your account numerical security code: ";
             cin >> sCode;

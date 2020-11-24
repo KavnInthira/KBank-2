@@ -66,7 +66,30 @@ namespace fileReadWrite{
         }
         myFileStream.close();
         myfile.close();
+    }
+    void newAccount(string first, string last, int code, double bal) {
+        ifstream myFileStream;
+        ofstream myfile;
 
+        myFileStream.open("accounts.txt"); 
+        myfile.open ("accountTemp.txt");
+            if(!myfile.is_open() || !myFileStream.is_open()){
+                cout<<"a file failed to open"<<endl;
+            } 
+        while(getline(myFileStream, line)){
+            stringstream ss(line);
+            getline(ss, firstName, ',');
+            getline(ss, lastName, ',');
+            getline(ss, codeString, ',');
+            customerCode = stoi(codeString);
+            getline(ss, balanceString, ',');
+            accountBalance = stod(balanceString);
+
+            myfile << line << endl;
+        }
+        myfile << first << "," << last << "," << code << "," << bal << endl;
+        myFileStream.close();
+        myfile.close();
     }
 
 }
