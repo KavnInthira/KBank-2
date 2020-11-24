@@ -1,6 +1,10 @@
 Not Finished: 11/5/20 - Line 79, need to have a way to check if another user with the first and last name doesn't have the same security code. if does then user is prompt with an error message asking to use a different passcode. 
 Finished: 11/16/20 - read file and store data from user into variables
 Finished: 11/16/20 - need to close file stream
-Finished: 11/17/2o - Need a way to store current balance of user
+Finished: 11/17/20 - Need a way to store current balance of user
 FInished: 11/20/20 - finish get balance function in
-Not Finished: 11/21/20 - When user exit need to update the account.txt file.
+Finished: 11/21/20 - When user exit need to update the account.txt file.
+Not Finished: 11/22/20 - Open account - write new account to acounts.txt file
+Not Finished: 11/22/20 - Open account - after account is created let user modify locally.
+Not Finished: 11/22/20 - Open account - save usern after user modify and created account.
+

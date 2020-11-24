@@ -43,6 +43,13 @@ int main() {
         if(initalChoice == 1){
             cout << "Great, lets create a numerical passcode: ";
             cin >> sCode;
+            //TODO: check if accont exits ask user to use a different numerical code.
+            //TODO: calls functions to check for user pass and code in other user so that there are not two of the same accounts.
+            //TODO: if fucntion comes back false then account is then created and written in accounts.txt            
+
+
+
+
             cout << "Don't forget to write this down so you'll be able to access your account later.\n" << endl;
             initLoop++;
         } else if (initalChoice == 2) {
@@ -96,4 +103,5 @@ int main() {
     } 
     return 0;
 }
+
 
